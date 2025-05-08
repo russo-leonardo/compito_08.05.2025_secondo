@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Pack Opener</title>
+</head>
+<body>
+    <h1>Pokémon Pack Opener</h1>
+    <p>Punti totali: {{ totale_punti }}</p>
+    <form action="/pesca" method="post">
+        <button type="submit">Apri un pacchetto (10 punti)</button>
+    </form>
+    <h2>Collezione</h2>
+    <ul>
+        {% for carta in raccolta %}
+            <li>{{ carta }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
