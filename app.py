@@ -39,3 +39,15 @@ def pesca():
         raccolta.extend(pacchetto)
         salva_raccolta_su_file()
     return pacchetto
+def salva_raccolta_su_file():
+    """Salva la raccolta in un file CSV."""
+    raccolta_df = pd.DataFrame(raccolta)
+    raccolta_df.to_csv('collezione.csv', index=False)
+
+@app.route('/')
+def index():
+    """Pagina principale."""
+    return render_template('index.html', totale_punti=totale_punti, raccolta=raccolta)
+
+if __name__ == '__main__':
+    app.run(debug=True)
