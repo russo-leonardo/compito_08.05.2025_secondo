@@ -49,5 +49,11 @@ def index():
     """Pagina principale."""
     return render_template('index.html', totale_punti=totale_punti, raccolta=raccolta)
 
+@app.route('/pesca', methods=['POST'])
+def pesca_pacchetto():
+    """Endpoint per aprire un pacchetto."""
+    pacchetto = pesca()
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True)
