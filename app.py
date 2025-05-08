@@ -4,11 +4,11 @@ import random
 
 app = Flask(__name__)
 
-# Inizializzazione variabili globali
+
 totale_punti = 100
 raccolta = []
 
-# Caricamento dati Pokémon
+
 df = pd.read_csv('pokemon (1).csv')
 df_comune = df[df["Rarità"] == "Comune"]
 df_non_comune = df[df["Rarità"] == "Non Comune"]
@@ -22,7 +22,7 @@ def pesca():
     if totale_punti >= 10:
         totale_punti -= 10
         for _ in range(5):
-            numero = random.uniform(0, 1)  # Genera un numero casuale tra 0 e 1
+            numero = random.uniform(0, 1)  
             if numero <= 0.7:  # Comune (70%)
                 totale_punti += 1
                 pokemon = df_comune.sample().to_dict(orient='records')[0]
@@ -39,6 +39,7 @@ def pesca():
         raccolta.extend(pacchetto)
         salva_raccolta_su_file()
     return pacchetto
+
 def salva_raccolta_su_file():
     """Salva la raccolta in un file CSV."""
     raccolta_df = pd.DataFrame(raccolta)
